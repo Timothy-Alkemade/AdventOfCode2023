@@ -53,8 +53,8 @@ function run(inputText) {
     // console.log(cleanedPipelineGrid);
     
     // Alternative: A horizontal or a vertical check
-    const tilesInside = countTilesInsidePipelineAreaHorizontalCheck(cleanedPipelineGrid, horizontalPipeIndexes);
-    // const tilesInside = countTilesInsidePipelineAreaVerticalCheck(cleanedPipelineGrid, verticalPipeIndexes);
+    // const tilesInside = countTilesInsidePipelineAreaHorizontalCheck(cleanedPipelineGrid, horizontalPipeIndexes);
+    const tilesInside = countTilesInsidePipelineAreaVerticalCheck(cleanedPipelineGrid, verticalPipeIndexes);
     
     console.log(`Part2: ${tilesInside}`);
 }
@@ -253,7 +253,7 @@ function getPipeIndexesForHorizontalCheck(allNodes, numberOfRows) {
     }
 
     allNodes.forEach(node => {
-         // Either only check for the parts [|,7,F] or [|,L,J]
+        // Either only check for the parts [|,7,F] or [|,L,J]
         if (node.symbol == '|' || node.symbol == '7' || node.symbol == 'F' ) {
             horizontalPipeIndexes[node.row].push(node.column);
         }
@@ -270,8 +270,8 @@ function getPipeIndexesForVerticalCheck(allNodes, numberOfColumns) {
     }
 
     allNodes.forEach(node => {
-        // 
-         if (node.symbol == '-' ||  node.symbol == 'L' || node.symbol == 'F') {
+         // Either only check for the parts [-,L,F] or [-,J,7] 
+        if (node.symbol == '-' ||  node.symbol == 'L' || node.symbol == 'F') {
             verticalPipeIndexes[node.column].push(node.row);
         }
     });
