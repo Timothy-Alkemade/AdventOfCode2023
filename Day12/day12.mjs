@@ -138,3 +138,4 @@ function sliceString(springsString, numToBeSliced) {
 
     return springArray.join('');
 }
+
